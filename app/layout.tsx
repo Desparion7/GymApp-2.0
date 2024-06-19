@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import { Navbar } from './_components/navbar';
 import { Footer } from './_components/footer';
+import { ClerkProvider } from '@clerk/nextjs';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -17,10 +18,14 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang='en'>
-			<Navbar />
-			<body className={inter.className}>{children}</body>
-			<Footer />
+		<html lang='pl'>
+			<body className={`${inter.className} bg-steel-gradient`}>
+				<ClerkProvider>
+					<Navbar />
+					{children}
+					<Footer />
+				</ClerkProvider>
+			</body>
 		</html>
 	);
 }
