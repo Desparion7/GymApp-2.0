@@ -9,7 +9,7 @@ export const Footer = () => {
 					<Logo />
 				</div>
 				<p className='text-[12px] font-semibold'>GYM PRO</p>
-				<p className='text-[12px]'>Aplikacja to zarządzania treningiem</p>
+				<p className='text-[12px]'>Application for training management</p>
 				{/* 
 				<div className='gap-x-2 md:block md:w-auto flex flex-col items-center justify-between w-full'>
 					<Button size='sm' variant='ghost'>
