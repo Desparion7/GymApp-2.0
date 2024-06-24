@@ -1,9 +1,13 @@
+
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import { Navbar } from './_components/navbar';
 import { Footer } from './_components/footer';
 import { ClerkProvider } from '@clerk/nextjs';
+import { plPL } from '@clerk/localizations';
+
+import { auth } from '@clerk/nextjs/server';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -17,11 +21,12 @@ export default function RootLayout({
 }: Readonly<{
 	children: React.ReactNode;
 }>) {
+	const { userId }: { userId: string | null } = auth();
 	return (
 		<html lang='pl'>
 			<body className={`${inter.className} bg-steel-gradient`}>
-				<ClerkProvider>
-					<Navbar />
+				<ClerkProvider localization={plPL}>
+					<Navbar userId={userId} />
 					{children}
 					<Footer />
 				</ClerkProvider>

@@ -10,11 +10,11 @@ const buttonVariants = cva(
 		variants: {
 			variant: {
 				default:
-					'button-gradient text-white hover:scale-[1.05] transition-[0.3]',
+					'button-gradient text-white hover:scale-[1.05] transition-[0.3] shadow-md',
+				white: 
+				'border border-input bg-white hover:scale-[1.05] transition-[0.3] shadow-md',
 				destructive:
 					'bg-destructive text-destructive-foreground hover:bg-destructive/90',
-				outline:
-					'border border-input bg-white hover:scale-[1.05] transition-[0.3]',
 				secondary:
 					'bg-secondary text-secondary-foreground hover:bg-secondary/80',
 				ghost: 'hover:bg-white hover:text-accent-foreground transition-[0.3]',
