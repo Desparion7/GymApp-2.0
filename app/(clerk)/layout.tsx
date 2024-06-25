@@ -4,7 +4,7 @@ const ClerkLayout = ({
 	children: React.ReactNode;
 }>) => {
 	return (
-		<div className='flex justify-center items-center min-h-full my-5'>
+		<div className='flex justify-center items-center min-h-[80vh] my-5'>
 			{children}
 		</div>
 	);
