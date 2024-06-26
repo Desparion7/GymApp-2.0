@@ -99,6 +99,40 @@
 	}
 }
 
-.cl-internal-1t3t0mq{
+.cl-internal-1t3t0mq {
 	gap: 1rem;
 }
+
+/* spinner classes */
+.loader {
+	width: 68px;
+	height: 68px;
+	border-radius: 50%;
+	display: inline-block;
+	display: flex;
+	border-top: 7px solid rgb(192, 189, 189);
+	border-right: 4px solid transparent;
+	box-sizing: border-box;
+	animation: rotation 1s linear infinite;
+}
+.loader::after {
+	content: '';
+	box-sizing: border-box;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 68px;
+	height: 68px;
+	border-radius: 50%;
+	border-left: 7px solid black;
+	border-bottom: 4px solid transparent;
+	animation: rotation 0.5s linear infinite reverse;
+  }
+  @keyframes rotation {
+	0% {
+	  transform: rotate(0deg);
+	}
+	100% {
+	  transform: rotate(360deg);
+	}
+  }

@@ -1,17 +1,17 @@
-'use client'
+'use client';
 import React from 'react';
 import Tile from './_components/tile';
-// import { auth } from '@clerk/nextjs/server';
 import { useUser } from '@clerk/nextjs';
-
+import Link from 'next/link';
 const Profile = () => {
-	// const { sessionId, userId } = auth();
-	const {user} = useUser();
+	const { user } = useUser();
 
 	return (
-		<div className='text-black text-4xl min-h-[85vh] fle flex-col justify-center items-center text-center mt-10'>
-			<h1 className='h-3xl'>Panel użytkownika {user?.username} </h1>
-			<div className='flex flex-wrap justify-center items-center gap-10 mt-[3rem]'>
+		<div className='text-black text-4xl min-h-[82vh] max-w-5xl flex flex-col justify-center items-center text-center mt-10 mb-10'>
+			<h1 className='text-2xl sm:text-3xl uppercase'>
+				Panel użytkownika {user?.username}{' '}
+			</h1>
+			<div className='flex flex-wrap justify-center items-center gap-4 sm:gap-10 mt-[1rem] my-[3rem] sm:mt-[2rem]'>
 				<Tile
 					title='Rozpocznij Trening'
 					imgSrc='/start.png'
@@ -23,11 +23,13 @@ const Profile = () => {
 					imgSrc='/history.png'
 					description='Kontroluj swoje postępy w historii treningów gdzie masz pełen dostęp do treningów kóre zostały wykonane'
 				/>
-				<Tile
-					title='Moje zestawy ćwiczeń'
-					imgSrc='/sets.png'
-					description='Utwórz swoje zestawy ćwiczeń, aby szybko rozpocząć trening z własnymi ćwiczeniami'
-				/>
+				<Link href='/profil/moje-plany-treningowe'>
+					<Tile
+						title='Moje zestawy ćwiczeń'
+						imgSrc='/sets.png'
+						description='Utwórz swoje zestawy ćwiczeń, aby szybko rozpocząć trening z własnymi ćwiczeniami'
+					/>
+				</Link>
 				<Tile
 					title='Moje rekordy'
 					imgSrc='/records.png'

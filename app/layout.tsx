@@ -1,4 +1,3 @@
-
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
@@ -27,7 +26,7 @@ export default function RootLayout({
 			<body className={`${inter.className} bg-steel-gradient`}>
 				<ClerkProvider localization={plPL}>
 					<Navbar userId={userId} />
-					{children}
+					<div className='flex justify-center'>{children}</div>
 					<Footer />
 				</ClerkProvider>
 			</body>
