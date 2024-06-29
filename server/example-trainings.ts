@@ -1,5 +1,5 @@
 import connectMongoDB from '@/dataBase/database';
-import ExampleTraining from '@/models/example-training';
+import ExampleTraining from '@/models/example-training-model';
 
 export const getExampleTrainingByPath = async (exampleTrainingPath: string) => {
 	await connectMongoDB();

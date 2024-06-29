@@ -5,11 +5,10 @@ import { useUser } from '@clerk/nextjs';
 import Link from 'next/link';
 const Profile = () => {
 	const { user } = useUser();
-
 	return (
 		<div className='text-black text-4xl min-h-[82vh] max-w-5xl flex flex-col justify-center items-center text-center mt-10 mb-10'>
 			<h1 className='text-2xl sm:text-3xl uppercase'>
-				Panel użytkownika {user?.username}{' '}
+				Panel użytkownika {user?.username}
 			</h1>
 			<div className='flex flex-wrap justify-center items-center gap-4 sm:gap-10 mt-[1rem] my-[3rem] sm:mt-[2rem]'>
 				<Tile
