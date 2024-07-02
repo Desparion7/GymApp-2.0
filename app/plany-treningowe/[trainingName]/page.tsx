@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react';
-import { getExampleTrainingByPath } from '@/server/example-trainings';
+import { getExampleTrainingByPath } from '@/server/actions/example-trainings';
 import LoadingSpinner from '@/components/loading-spinner';
 import { ExampleTrainingType } from '@/types/example-training-types';
 import Link from 'next/link';

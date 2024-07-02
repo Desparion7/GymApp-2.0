@@ -15,16 +15,12 @@ const TrainingSetSchema = new Schema({
 		required: true,
 	},
 	exercise: {
-		type: [
-			{
-				type: [exerciseSchema],
-			},
-		],
+		type: [exerciseSchema],
 		required: true,
 	},
 	trainingName: {
 		type: String,
-		require: true,
+		required: true,
 	},
 });
 

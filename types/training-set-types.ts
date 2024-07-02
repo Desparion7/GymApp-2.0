@@ -6,6 +6,7 @@ export type TrainingSetTypeExerciseType = {
 	url: string;
 };
 export type TrainingSetType = {
+	_id?: string;
 	user: string;
 	exercise: TrainingSetTypeExerciseType[][];
 	trainingName: string;
