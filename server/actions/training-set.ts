@@ -2,6 +2,8 @@
 import connectMongoDB from '@/server/dataBase/database';
 import TrainingSet from '@/server/models/treining-set-model';
 import { revalidatePath } from 'next/cache';
+import { auth } from '@clerk/nextjs/server';
+import { ObjectId } from 'mongodb';
 // Get user all sets
 export const getUserTrainingSets = async (userId: string | undefined) => {
 	await connectMongoDB();
@@ -37,5 +39,26 @@ export const createNewTrainingSet = async (userId: string | undefined) => {
 		}
 	} catch (error) {
 		return new Error('Nie udało się utworzyć nowego treningu');
+	}
+};
+export const deleteTrainingSet = async (trainingSetId:  string) => {
+	const { userId }: { userId: string | null } = auth();
+	try {
+		await connectMongoDB();
+
+		const deletedTrainingSet = await TrainingSet.deleteOne({
+			_id: trainingSetId,
+			user: userId,
+		});
+
+		if (deletedTrainingSet.deletedCount > 0) {
+			revalidatePath('/profil/moje-plany-treningowe');
+		} else {
+			throw new Error(
+				'Nie znaleziono treningu do usunięcia lub brak uprawnień.'
+			);
+		}
+	} catch (error) {
+		return new Error('Nie udało się usunąć treningu');
 	}
 };

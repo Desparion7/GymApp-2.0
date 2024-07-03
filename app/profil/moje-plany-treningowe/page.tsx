@@ -6,6 +6,7 @@ import Image from 'next/image';
 import React, { Suspense } from 'react';
 import { TrainingSetType } from '@/types/training-set-types';
 import AddNewTrainingSetBtn from './_components/add-new-training-set-btn';
+import DeleteTrainingSetBtn from './_components/delete-training-set-btn';
 
 async function MyPlansScreen({ userId }: { userId: string }) {
 	const trainingSets: TrainingSetType[] | null = await getUserTrainingSets(
@@ -55,16 +56,9 @@ async function MyPlansScreen({ userId }: { userId: string }) {
 										/>
 										<p className='text-sm'>Edytuj</p>
 									</button>
-									<button className='hover:scale-110 transition-[0.3]'>
-										<Image
-											src='/trash.png'
-											width={347}
-											height={326}
-											alt=''
-											className='w-[3rem] '
-										/>
-										<p className='text-sm'>Usuń</p>
-									</button>
+									<DeleteTrainingSetBtn
+										trainingId={training._id}
+									/>
 								</div>
 							</div>
 						))}
