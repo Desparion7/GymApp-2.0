@@ -5,6 +5,8 @@ import { Navbar } from './_components/navbar';
 import { Footer } from './_components/footer';
 import { ClerkProvider } from '@clerk/nextjs';
 import { plPL } from '@clerk/localizations';
+import ReactQueryProvider from './_components/react-query-provider';
+import Toast from './_components/toaster';
 
 import { auth } from '@clerk/nextjs/server';
 
@@ -24,11 +26,14 @@ export default function RootLayout({
 	return (
 		<html lang='pl'>
 			<body className={`${inter.className} bg-steel-gradient`}>
-				<ClerkProvider localization={plPL}>
-					<Navbar userId={userId} />
-					<div className='flex justify-center'>{children}</div>
-					<Footer />
-				</ClerkProvider>
+				<ReactQueryProvider>
+					<ClerkProvider localization={plPL}>
+						<Toast />
+						<Navbar userId={userId} />
+						<div className='flex justify-center'>{children}</div>
+						<Footer />
+					</ClerkProvider>
+				</ReactQueryProvider>
 			</body>
 		</html>
 	);
