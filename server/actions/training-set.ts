@@ -2,9 +2,8 @@
 import connectMongoDB from '@/server/dataBase/database';
 import TrainingSet from '@/server/models/treining-set-model';
 import { revalidatePath } from 'next/cache';
-import { redirect } from 'next/navigation';
 import { auth } from '@clerk/nextjs/server';
-import { ObjectId } from 'mongodb';
+
 
 // Get user all sets
 export const getUserTrainingSets = async (userId: string) => {
