@@ -10,8 +10,8 @@ import { AxiosError } from 'axios';
 import axios from 'axios';
 
 type FetchTrainingSetsResponse = {
-	exampleTraining: ExampleTrainingType;
-	error: AxiosError;
+	exampleTraining?: ExampleTrainingType;
+	error?: AxiosError;
 };
 
 const fetchTrainingSets = async (
@@ -31,14 +31,14 @@ function ExampleTraining({ params }: { params: { trainingName: string } }) {
 			return fetchTrainingSets(trainingName);
 		},
 	});
-	console.log(error);
+
 	return (
-		<section className='text-black min-h-[82vh] flex flex-col justify-center items-center text-center mt-10 mb-10 max-w-5xl w-full'>
+		<section className='text-black min-h-[82vh] flex flex-col justify-start items-center text-center mt-10 mb-10 max-w-5xl w-full'>
 			{isLoading && <LoadingSpinner />}
-			{error && (
+			{error  && (
 				<>
-					{error.response.data.error}
-					<p className='text-xl'>
+					{error.response.data.message }
+					<p className='text-xl text-red-500 flex flex-start'>
 						Wystąpił problem z pobraniem danych treningu.
 					</p>
 				</>
