@@ -22,7 +22,7 @@ const Profile = () => {
 					imgSrc='/history.png'
 					description='Kontroluj swoje postępy w historii treningów gdzie masz pełen dostęp do treningów kóre zostały wykonane'
 				/>
-				<Link href='/profil/moje-plany-treningowe'>
+				<Link href='/profil/moje-zestawy-cwiczen'>
 					<Tile
 						title='Moje zestawy ćwiczeń'
 						imgSrc='/sets.png'

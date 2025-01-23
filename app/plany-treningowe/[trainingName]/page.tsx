@@ -17,7 +17,7 @@ type FetchTrainingSetsResponse = {
 const fetchTrainingSets = async (
 	trainingName: string
 ): Promise<FetchTrainingSetsResponse> => {
-	const { data } = await axios.get(`/api/training/`, {
+	const { data } = await axios.get(`/api/example-training/`, {
 		params: { trainingName },
 	});
 	return data;
@@ -35,9 +35,9 @@ function ExampleTraining({ params }: { params: { trainingName: string } }) {
 	return (
 		<section className='text-black min-h-[82vh] flex flex-col justify-start items-center text-center mt-10 mb-10 max-w-5xl w-full'>
 			{isLoading && <LoadingSpinner />}
-			{error  && (
+			{error && (
 				<>
-					{error.response.data.message }
+
 					<p className='text-xl text-red-500 flex flex-start'>
 						Wystąpił problem z pobraniem danych treningu.
 					</p>
